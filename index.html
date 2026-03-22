@@ -1160,6 +1160,195 @@
       padding: 2px 7px; margin-left: 4px;
     }
 
+    /* ===== NUOVE SEZIONI ===== */
+    .card-form {
+      background: var(--surface); border: 1px solid var(--bordo);
+      border-radius: var(--raggio); padding: 16px; margin-top: 12px;
+      box-shadow: var(--ombra); display: flex; flex-direction: column; gap: 8px;
+    }
+    .card-form label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--testo-muted); margin-top: 4px;
+    }
+    .card-form input, .card-form textarea, .card-form select {
+      width: 100%; padding: 8px 10px; border: 1px solid var(--bordo-forte);
+      border-radius: var(--raggio-sm); font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem; background: var(--bg); color: var(--testo);
+    }
+    .card-form textarea { min-height: 70px; resize: vertical; }
+    .card-form button {
+      padding: 9px 18px; background: var(--terracotta); color: white;
+      border: none; border-radius: var(--raggio-sm);
+      font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .card-form button:hover { background: var(--terra-dark); }
+    .btn-sec {
+      background: var(--surface-alt) !important; color: var(--testo-muted) !important;
+      border: 1px solid var(--bordo) !important;
+    }
+    .form-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .form-row label { margin: 0; min-width: 120px; }
+
+    /* Scala dolore */
+    .dolore-scala { display: flex; gap: 6px; flex-wrap: wrap; }
+    .dolore-btn {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1.5px solid var(--bordo-forte); background: var(--surface);
+      font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s; color: var(--testo);
+    }
+    .dolore-btn.attivo { background: var(--terracotta); color: white; border-color: var(--terracotta); }
+    .dolore-btn:hover:not(.attivo) { background: var(--terra-light); border-color: var(--terracotta); }
+
+    /* Scala umore */
+    .umore-scala { display: flex; gap: 10px; }
+    .umore-btn {
+      font-size: 1.6rem; cursor: pointer; opacity: 0.35;
+      transition: all 0.15s; border: none; background: none; padding: 2px;
+      border-radius: 8px;
+    }
+    .umore-btn.attivo { opacity: 1; transform: scale(1.2); }
+    .umore-btn:hover { opacity: 0.8; }
+
+    /* Card benessere */
+    .benessere-card {
+      background: var(--surface); border: 1px solid var(--bordo);
+      border-radius: var(--raggio); padding: 12px 14px; margin-bottom: 8px;
+      box-shadow: var(--ombra);
+    }
+    .benessere-data { font-size: 0.78rem; color: var(--testo-muted); margin-bottom: 6px; }
+    .benessere-valori { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .bv-chip {
+      font-size: 0.8rem; padding: 3px 9px; border-radius: 20px;
+      background: var(--surface-alt); border: 1px solid var(--bordo); color: var(--testo-muted);
+    }
+    .bv-dolore { background: var(--terra-light); border-color: var(--terracotta); color: var(--terra-dark); }
+
+    /* Bacheca */
+    .bacheca-msg {
+      background: var(--surface); border: 1px solid var(--bordo);
+      border-left: 3px solid var(--salvia);
+      border-radius: var(--raggio); padding: 12px 14px; margin-bottom: 8px;
+      box-shadow: var(--ombra);
+    }
+    .bacheca-meta { font-size: 0.75rem; color: var(--testo-muted); margin-bottom: 5px; }
+    .bacheca-testo { font-size: 0.92rem; line-height: 1.6; }
+    .bacheca-msg button {
+      margin-top: 8px; background: none; border: none; cursor: pointer;
+      font-size: 0.78rem; color: var(--testo-light); padding: 0;
+    }
+    .bacheca-msg button:hover { color: var(--rosso); }
+
+    /* Visite */
+    .visita-card {
+      background: var(--surface); border: 1px solid var(--bordo);
+      border-left: 3px solid var(--ambra);
+      border-radius: var(--raggio); padding: 14px; margin-bottom: 10px;
+      box-shadow: var(--ombra);
+    }
+    .visita-data { font-size: 0.78rem; color: var(--testo-muted); margin-bottom: 4px; }
+    .visita-medico { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .visita-sezione { font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--testo-muted); margin: 8px 0 3px; }
+    .visita-card button {
+      margin-top: 8px; background: none; border: none; cursor: pointer;
+      font-size: 0.78rem; color: var(--testo-light); padding: 0;
+    }
+    .visita-card button:hover { color: var(--rosso); }
+
+    /* Emergenza */
+    #scheda-emergenza-contenuto {
+      background: var(--surface); border: 2px solid var(--rosso);
+      border-radius: var(--raggio); padding: 18px; box-shadow: var(--ombra);
+    }
+    .em-titolo {
+      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600;
+      color: var(--rosso); margin-bottom: 14px; display: flex;
+      align-items: center; gap: 8px;
+    }
+    .em-sezione { font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--testo-muted); margin: 12px 0 4px; }
+    .em-farmaco-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 5px 0; border-bottom: 0.5px solid var(--bordo); font-size: 0.88rem;
+    }
+    .em-farmaco-row:last-child { border-bottom: none; }
+    .em-dose { font-size: 0.78rem; color: var(--testo-muted); }
+    .em-dato { font-size: 0.9rem; color: var(--testo); margin-bottom: 4px; }
+
+    /* Lista spesa */
+    .spesa-item {
+      background: var(--surface); border: 1px solid var(--bordo);
+      border-radius: var(--raggio); padding: 12px 14px; margin-bottom: 8px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: var(--ombra);
+    }
+    .spesa-nome { font-weight: 600; font-size: 0.95rem; }
+    .spesa-dettaglio { font-size: 0.8rem; color: var(--testo-muted); margin-top: 2px; }
+    .spesa-urgente { border-left: 3px solid var(--rosso); }
+    .spesa-attenzione { border-left: 3px solid var(--ambra); }
+    .spesa-checkbox { width: 22px; height: 22px; cursor: pointer; accent-color: var(--salvia); }
+
+    /* ===== MENU POPUP CALENDARIO ===== */
+    .cal-popup-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+      z-index: 500; display: flex; align-items: flex-end; justify-content: center;
+    }
+    .cal-popup {
+      background: var(--surface);
+      border-radius: 18px 18px 0 0;
+      padding: 20px 20px 32px;
+      width: 100%; max-width: 480px;
+      box-shadow: 0 -4px 24px rgba(46,35,24,0.15);
+      animation: slideUp 0.2s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .cal-popup-titolo {
+      font-family: 'Lora', serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .cal-popup-azioni {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .cal-popup-btn {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 16px;
+      background: var(--surface-alt);
+      border: 1px solid var(--bordo);
+      border-radius: var(--raggio);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.92rem; font-weight: 600;
+      color: var(--testo);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-align: left;
+    }
+    .cal-popup-btn:hover { background: var(--terra-light); border-color: var(--terracotta); color: var(--terracotta); }
+    .cal-popup-btn span.icona { font-size: 1.1rem; width: 24px; text-align: center; }
+    .cal-popup-chiudi {
+      margin-top: 12px; width: 100%; padding: 11px;
+      background: none; border: 1px solid var(--bordo-forte);
+      border-radius: var(--raggio); font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem; color: var(--testo-muted); cursor: pointer;
+      transition: all 0.15s;
+    }
+    .cal-popup-chiudi:hover { background: var(--surface-alt); }
+
+    /* ===== FIX ALLINEAMENTO GENERALE ===== */
+    section { text-align: left; }
+    .fascia ul { text-align: left; }
+    #pannello-scheda { text-align: left; }
+    .scorta-card { text-align: left; }
+    .giorno-storico { text-align: left; }
+    p { text-align: left; }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
       body { font-size: 15px; }
@@ -1256,6 +1445,11 @@
     <button onclick="mostraSezione('schede')">Schede farmaci</button>
     <button onclick="mostraSezione('appuntamenti')">Appuntamenti</button>
     <button onclick="mostraSezione('contatti')">Contatti</button>
+    <button onclick="mostraSezione('benessere')">Benessere</button>
+    <button onclick="mostraSezione('bacheca')">Bacheca</button>
+    <button onclick="mostraSezione('visite')">Visite</button>
+    <button onclick="mostraSezione('emergenza')">Emergenza</button>
+    <button onclick="mostraSezione('spesa')">Lista spesa</button>
     <button onclick="mostraSezione('diario')">Diario</button>
   </nav>
 
@@ -1407,6 +1601,119 @@
     </div>
   </section>
 
+  <!-- ===================== SEZIONE: BENESSERE ===================== -->
+  <section id="sezione-benessere" style="display:none">
+    <h2>Benessere quotidiano</h2>
+
+    <!-- Scala del dolore + umore oggi -->
+    <div class="fascia">
+      <h3>Oggi</h3>
+      <div id="benessere-oggi" style="padding:14px"></div>
+    </div>
+
+    <!-- Storico benessere -->
+    <h3 style="margin:16px 0 10px;font-size:1rem">Storico</h3>
+    <div id="lista-benessere"></div>
+
+    <!-- Form aggiunta -->
+    <div class="card-form" id="form-benessere">
+      <div class="form-row">
+        <label>Dolore (0–10)</label>
+        <div class="dolore-scala" id="scala-dolore"></div>
+        <span id="dolore-val" style="font-weight:600;color:var(--terracotta);margin-left:8px">0</span>
+      </div>
+      <div class="form-row" style="margin-top:12px">
+        <label>Umore / Energia</label>
+        <div class="umore-scala" id="scala-umore"></div>
+      </div>
+      <div class="form-row" style="margin-top:12px">
+        <label>Peso (kg)</label>
+        <input type="number" id="input-peso" placeholder="es. 62.5" step="0.1" min="20" max="200" style="width:120px">
+      </div>
+      <div class="form-row" style="margin-top:8px">
+        <label>Pressione</label>
+        <input type="text" id="input-pressione" placeholder="es. 120/80" style="width:120px">
+      </div>
+      <div class="form-row" style="margin-top:8px">
+        <label>Temperatura (°C)</label>
+        <input type="number" id="input-temperatura" placeholder="es. 36.8" step="0.1" min="34" max="42" style="width:120px">
+      </div>
+      <button onclick="salvaBenessere()" style="margin-top:14px">Salva benessere di oggi</button>
+    </div>
+  </section>
+
+  <!-- ===================== SEZIONE: BACHECA ===================== -->
+  <section id="sezione-bacheca" style="display:none">
+    <h2>Bacheca famiglia</h2>
+    <div id="lista-bacheca"></div>
+    <div class="card-form">
+      <textarea id="input-bacheca" placeholder="Scrivi un messaggio per la famiglia..." style="min-height:80px"></textarea>
+      <button onclick="salvaBacheca()">+ Pubblica messaggio</button>
+    </div>
+  </section>
+
+  <!-- ===================== SEZIONE: VISITE ===================== -->
+  <section id="sezione-visite" style="display:none">
+    <h2>Registro visite mediche</h2>
+    <div id="lista-visite"></div>
+    <button onclick="toggleForm('form-visita')">+ Aggiungi visita</button>
+    <div id="form-visita" style="display:none" class="card-form">
+      <label>Data</label>
+      <input type="date" id="v-data">
+      <label>Medico / Struttura</label>
+      <input type="text" id="v-medico" placeholder="es. Dott.ssa Rossi – CRO Aviano">
+      <label>Cosa è emerso</label>
+      <textarea id="v-note" placeholder="Risultati, diagnosi, indicazioni..." style="min-height:80px"></textarea>
+      <label>Prossimi passi</label>
+      <input type="text" id="v-prossimi" placeholder="es. Analisi del sangue tra 2 settimane">
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button onclick="salvaVisita()">Salva</button>
+        <button onclick="toggleForm('form-visita')" class="btn-sec">Annulla</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SEZIONE: EMERGENZA ===================== -->
+  <section id="sezione-emergenza" style="display:none">
+    <h2>Scheda di emergenza</h2>
+    <p style="color:var(--testo-muted);font-size:0.85rem;margin-bottom:16px">
+      Tieni questa scheda aggiornata — è utile in caso di ricovero urgente o per il 118.
+      Puoi stamparla con il tasto in fondo.
+    </p>
+    <div id="scheda-emergenza-contenuto">
+      <!-- generata da JS -->
+    </div>
+    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+      <button onclick="stampaEmergenza()">🖨️ Stampa / Salva PDF</button>
+      <button onclick="toggleForm('form-emergenza-extra')" class="btn-sec">✏️ Modifica dati extra</button>
+    </div>
+    <div id="form-emergenza-extra" style="display:none" class="card-form">
+      <label>Nome paziente</label>
+      <input type="text" id="em-nome" placeholder="Nome e cognome">
+      <label>Data di nascita</label>
+      <input type="text" id="em-nascita" placeholder="es. 15/03/1952">
+      <label>Medico di base</label>
+      <input type="text" id="em-medico-base" placeholder="Nome e telefono">
+      <label>Gruppo sanguigno</label>
+      <input type="text" id="em-gruppo" placeholder="es. A+">
+      <label>Allergie</label>
+      <input type="text" id="em-allergie" placeholder="Nessuna allergia nota">
+      <label>Note aggiuntive</label>
+      <textarea id="em-note" placeholder="Patologie, condizioni particolari..."></textarea>
+      <button onclick="salvaEmergenzaExtra()">Salva</button>
+    </div>
+  </section>
+
+  <!-- ===================== SEZIONE: LISTA SPESA ===================== -->
+  <section id="sezione-spesa" style="display:none">
+    <h2>Lista spesa farmaci</h2>
+    <p style="color:var(--testo-muted);font-size:0.85rem;margin-bottom:16px">
+      Farmaci con scorte in esaurimento — da ordinare in farmacia.
+    </p>
+    <div id="lista-spesa"></div>
+    <button onclick="condividiSpesa()" style="margin-top:14px">📤 Condividi lista</button>
+  </section>
+
 
   <!-- ===================== JAVASCRIPT ===================== -->
 
@@ -1429,27 +1736,34 @@
     appId: "1:898898051678:web:fc9fd47d2bb25420b02acf"
   };
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  // Riferimenti ai nodi del database
-  const REF_STORICO      = db.ref('storico');
-  const REF_SCORTE       = db.ref('scorte');
-  const REF_CEROTTO      = db.ref('cerotto');
-  const REF_APPUNTAMENTI = db.ref('appuntamenti');
-  const REF_CONTATTI     = db.ref('contatti');
-  const REF_NOTE         = db.ref('note');
-
-  // Stato di connessione
+  // Firebase init con protezione da errori
+  let db = null;
+  let REF_STORICO, REF_SCORTE, REF_CEROTTO, REF_APPUNTAMENTI, REF_CONTATTI, REF_NOTE;
   let firebaseConnesso = false;
-  db.ref('.info/connected').on('value', function(snap) {
-    firebaseConnesso = snap.val();
+
+  try {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.database();
+    REF_STORICO      = db.ref('storico');
+    REF_SCORTE       = db.ref('scorte');
+    REF_CEROTTO      = db.ref('cerotto');
+    REF_APPUNTAMENTI = db.ref('appuntamenti');
+    REF_CONTATTI     = db.ref('contatti');
+    REF_NOTE         = db.ref('note');
+
+    db.ref('.info/connected').on('value', function(snap) {
+      firebaseConnesso = snap.val();
+      const ind = document.getElementById('indicatore-connessione');
+      if (ind) {
+        ind.textContent = firebaseConnesso ? '🟢 Online' : '🔴 Offline';
+        ind.title = firebaseConnesso ? 'Connesso — dati sincronizzati' : 'Offline — dati salvati localmente';
+      }
+    });
+  } catch(e) {
+    console.warn('Firebase non disponibile, uso solo localStorage:', e);
     const ind = document.getElementById('indicatore-connessione');
-    if (ind) {
-      ind.textContent = firebaseConnesso ? '🟢 Online' : '🔴 Offline';
-      ind.title = firebaseConnesso ? 'Connesso — dati sincronizzati' : 'Offline — dati salvati localmente';
-    }
-  });
+    if (ind) ind.textContent = '🔴 Offline';
+  }
 
   // ============================================================
   // DATI: FARMACI
@@ -1572,9 +1886,9 @@
     },
     {
       id: 'geffers',
-      nome: 'Geffers',
+      nome: 'Geffer',
       fascia: 'bisogno',
-      dosi: ['1 compressa'],
+      dosi: ['1 bustina'],
       tipo: 'bisogno',
       scorteId: 'geffers'
     },
@@ -1774,15 +2088,15 @@
     },
 
     'geffers': {
-      nome: 'Geffers',
-      categoria: 'Da verificare con il medico',
-      dosaggio: 'Come da prescrizione medica. Consultare il foglietto illustrativo.',
-      uso: 'Farmaco prescritto come da indicazione del medico curante. Consultare la scheda tecnica fornita dal medico o dal farmacista per informazioni specifiche.',
-      posologia: 'Come indicato dal medico.',
-      effetti: 'Come indicato dal medico o dal foglietto illustrativo.',
-      dimenticata: 'Consultare il medico.',
-      sovradosaggio: 'Chiamare il 118 o contattare immediatamente il medico.',
-      attenzioni: 'Seguire le indicazioni del medico curante. Conservare il foglietto illustrativo.'
+      nome: 'Geffer (granulato effervescente)',
+      categoria: 'Procinetico + antiacido — bustine effervescenti (Bayer)',
+      dosaggio: '1 bustina sciolta in mezzo bicchiere di acqua, 2-3 volte al giorno AL BISOGNO. Prima dei pasti o quando compaiono i disturbi. Max 3 giorni consecutivi.',
+      uso: 'Tratta bruciore di stomaco, digestione lenta, nausea, meteorismo e aerofagia da iperacidita gastrica. Contiene metoclopramide (procinetico) e sodio bicarbonato (antiacido).',
+      posologia: 'Sciogliere 1 bustina in mezzo bicchiere di acqua e bere subito. Assumere prima dei pasti o al momento dei disturbi. Non superare 3 giorni di uso consecutivo senza consultare il medico.',
+      effetti: 'Sonnolenza, stanchezza, vertigini. Negli anziani con uso prolungato: possibili movimenti involontari. Effetto lassativo a dosi eccessive.',
+      dimenticata: 'E un farmaco al bisogno — si prende solo quando necessario, non a orari fissi.',
+      sovradosaggio: 'Contattare subito il medico o il 118. Sintomi: sonnolenza, disorientamento, movimenti involontari degli arti, crampi muscolari.',
+      attenzioni: 'Non usare per piu di 3 giorni di fila. Evitare alcol. Prendere a distanza di 2 ore dagli altri farmaci. Attenzione: interagisce con Sertralina (rischio sindrome serotoninergica) — segnalare al medico se usato frequentemente. Contiene sodio (288mg per bustina).'
     },
 
     'cerotto': {
@@ -1816,7 +2130,7 @@
     'rizmoic':               { nome: 'Rizmoic',              qty: 28, doseGiorno: 1 },
     'brufen':                { nome: 'Brufen',               qty: 20, doseGiorno: 0 }, // al bisogno
     'effentora':             { nome: 'Effentora',            qty: 10, doseGiorno: 0 },
-    'geffers':               { nome: 'Geffers',              qty: 20, doseGiorno: 0 },
+    'geffers':               { nome: 'Geffer',               qty: 24, doseGiorno: 0 }, // 24 bustine a confezione
     'cerotto':               { nome: 'Cerotto',              qty: 5,  doseGiorno: 0.33 } // 1 ogni 3 giorni
   };
 
@@ -1872,6 +2186,7 @@
 
     // Salva su Firebase (asincrono, non bloccante)
     try {
+      if (!db) return;
       REF_STORICO.set(storico);
       REF_SCORTE.set(scorte);
       REF_CEROTTO.set(ultimoCambioCerotto || null);
@@ -1895,6 +2210,8 @@
     avviaControlloOrario();
 
     // Poi ascolta Firebase in tempo reale — aggiorna appena arrivano dati
+    avviaListenerNuoviDati();
+    if (!db) return; // Firebase non disponibile, usa solo localStorage
     REF_STORICO.on('value', function(snap) {
       if (snap.val()) {
         storico = snap.val();
@@ -1959,7 +2276,7 @@
   // ============================================================
   // NAVIGAZIONE
   // ============================================================
-  const tutteLeSezioni = ['farmaci','calendario','storico','scorte','schede','appuntamenti','contatti','diario'];
+  const tutteLeSezioni = ['farmaci','calendario','storico','scorte','schede','appuntamenti','contatti','diario','benessere','bacheca','visite','emergenza','spesa'];
 
   function mostraSezione(nome) {
     tutteLeSezioni.forEach(s => {
@@ -1973,6 +2290,11 @@
     if (nome === 'appuntamenti') renderAppuntamenti();
     if (nome === 'contatti')     renderContatti();
     if (nome === 'diario')       renderNote();
+    if (nome === 'benessere')    renderBenessere();
+    if (nome === 'bacheca')      renderBacheca();
+    if (nome === 'visite')       renderVisite();
+    if (nome === 'emergenza')    renderEmergenza();
+    if (nome === 'spesa')        renderSpesa();
   }
 
   function toggleForm(id) {
@@ -2418,7 +2740,45 @@
     chiudiDettaglioGiorno();
   }
 
+  // Popup menu per i giorni del calendario
+  let popupGiornoTk = null;
+
   function apriDettaglioGiorno(tk) {
+    popupGiornoTk = tk;
+    // Rimuovi popup esistente
+    const old = document.getElementById('cal-popup-overlay');
+    if (old) old.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'cal-popup-overlay';
+    overlay.id = 'cal-popup-overlay';
+    overlay.onclick = function(e) { if (e.target === overlay) chiudiPopupCalendario(); };
+
+    const dataFormattata = formatData(tk);
+
+    overlay.innerHTML = '<div class="cal-popup">' +
+      '<div class="cal-popup-titolo">' + dataFormattata + '</div>' +
+      '<div class="cal-popup-azioni">' +
+        '<button class="cal-popup-btn" onclick="apriDettaglioFarmaci('' + tk + '')">' +
+          '<span class="icona">💊</span> Vedi farmaci di questo giorno</button>' +
+        '<button class="cal-popup-btn" onclick="aggiuntaVeloceNota('' + tk + '')">' +
+          '<span class="icona">📝</span> Aggiungi nota per questo giorno</button>' +
+        '<button class="cal-popup-btn" onclick="aggiuntaVeloceAppuntamento('' + tk + '')">' +
+          '<span class="icona">📅</span> Aggiungi appuntamento in questa data</button>' +
+      '</div>' +
+      '<button class="cal-popup-chiudi" onclick="chiudiPopupCalendario()">Chiudi</button>' +
+    '</div>';
+
+    document.body.appendChild(overlay);
+  }
+
+  function chiudiPopupCalendario() {
+    const el = document.getElementById('cal-popup-overlay');
+    if (el) el.remove();
+  }
+
+  function apriDettaglioFarmaci(tk) {
+    chiudiPopupCalendario();
     const farmNormali = FARMACI.filter(f => f.tipo === 'normale');
     const datiGiorno  = storico[tk] || {};
 
@@ -2428,11 +2788,12 @@
     lista.innerHTML = farmNormali.map(function(f) {
       const preso = datiGiorno[f.id] || false;
       const ora   = datiGiorno[f.id + '_ora'] || '';
+      const chi   = datiGiorno[f.id + '_chi'] || '';
       const dosaLabel = f.dosi.join(' + ');
       return '<li class="dettaglio-item ' + (preso ? 'det-preso' : 'det-mancante') + '">' +
         '<span class="det-icon">' + (preso ? '✓' : '✗') + '</span>' +
         '<span class="det-nome">' + f.nome + ' <span class="dose-label">' + dosaLabel + '</span></span>' +
-        (ora ? '<span class="det-ora">' + ora + '</span>' : '') +
+        (ora ? '<span class="det-ora">' + ora + (chi ? ' · ' + chi : '') + '</span>' : '') +
         '</li>';
     }).join('');
 
@@ -2452,6 +2813,28 @@
 
     document.getElementById('dettaglio-giorno').style.display = 'block';
     document.getElementById('dettaglio-giorno').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function aggiuntaVeloceNota(tk) {
+    chiudiPopupCalendario();
+    mostraSezione('diario');
+    setTimeout(function() {
+      const textarea = document.getElementById('input-nota');
+      if (textarea) {
+        textarea.focus();
+        textarea.placeholder = 'Nota per ' + formatData(tk) + '...';
+      }
+    }, 200);
+  }
+
+  function aggiuntaVeloceAppuntamento(tk) {
+    chiudiPopupCalendario();
+    mostraSezione('appuntamenti');
+    setTimeout(function() {
+      document.getElementById('form-appuntamento').style.display = 'block';
+      const inputData = document.getElementById('input-data-appt');
+      if (inputData) inputData.value = tk;
+    }, 200);
   }
 
   function chiudiDettaglioGiorno() {
@@ -2609,7 +2992,8 @@
 
     // Notifica sommario unica (per non spammare)
     const totale = avvisi.length;
-    const corpo  = avvisi.map(a => a.titolo).join('');
+    const corpo  = avvisi.map(a => a.titolo).join('
+');
 
     setTimeout(function() {
       new Notification('Calendario Medico – Mamma', {
@@ -2629,6 +3013,375 @@
       renderBanner();
       inviaNotifichePendenti();
     }, 60 * 60 * 1000); // ogni ora
+  }
+
+
+  // ============================================================
+  // DATI NUOVE SEZIONI
+  // ============================================================
+  let benessere  = JSON.parse(localStorage.getItem('benessere')  || '[]');
+  let bacheca    = JSON.parse(localStorage.getItem('bacheca')    || '[]');
+  let visite     = JSON.parse(localStorage.getItem('visite')     || '[]');
+  let emergenzaExtra = JSON.parse(localStorage.getItem('emergenzaExtra') || '{}');
+
+  // Aggiorna salvaLocale per includere nuovi dati
+  const _salvaLocaleOrig = salvaLocale;
+
+  // ============================================================
+  // BENESSERE — dolore, umore, parametri vitali
+  // ============================================================
+  let doloreSelezionato = 0;
+  let umoreSelezionato = '';
+  const UMORE_EMOJI = ['😔','😕','😐','🙂','😊'];
+  const UMORE_LABEL = ['Molto giù','Giù','Neutro','Bene','Molto bene'];
+
+  function renderBenessere() {
+    // Scala dolore
+    const scalaDolore = document.getElementById('scala-dolore');
+    if (scalaDolore) {
+      scalaDolore.innerHTML = Array.from({length:11},(_,i) =>
+        '<button class="dolore-btn' + (doloreSelezionato===i?' attivo':'') +
+        '" onclick="selDolore(' + i + ')">' + i + '</button>'
+      ).join('');
+    }
+    // Scala umore
+    const scalaUmore = document.getElementById('scala-umore');
+    if (scalaUmore) {
+      scalaUmore.innerHTML = UMORE_EMOJI.map((e,i) =>
+        '<button class="umore-btn' + (umoreSelezionato===e?' attivo':'') +
+        '" onclick="selUmore('' + e + '')" title="' + UMORE_LABEL[i] + '">' + e + '</button>'
+      ).join('');
+    }
+    // Benessere oggi
+    const tk = oggiStr();
+    const oggi = benessere.find(b => b.data === tk);
+    const elOggi = document.getElementById('benessere-oggi');
+    if (elOggi) {
+      if (oggi) {
+        elOggi.innerHTML = renderBenessereValori(oggi) +
+          '<button onclick="eliminaBenessere('' + tk + '')" style="margin-top:10px;background:none;border:none;cursor:pointer;font-size:0.78rem;color:var(--testo-light)">Elimina e reinserisci</button>';
+      } else {
+        elOggi.innerHTML = renderFormBenessere();
+      }
+    }
+    // Lista storico
+    const lista = document.getElementById('lista-benessere');
+    if (!lista) return;
+    const storicoBen = [...benessere].filter(b => b.data !== tk).sort((a,b) => b.data.localeCompare(a.data));
+    lista.innerHTML = storicoBen.length ? storicoBen.map(b =>
+      '<div class="benessere-card">' +
+        '<div class="benessere-data">' + formatData(b.data) + '</div>' +
+        renderBenessereValori(b) +
+      '</div>'
+    ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessun dato storico ancora.</p>';
+  }
+
+  function renderBenessereValori(b) {
+    let chips = '';
+    if (b.dolore !== undefined) chips += '<span class="bv-chip bv-dolore">Dolore: ' + b.dolore + '/10</span>';
+    if (b.umore) chips += '<span class="bv-chip">' + b.umore + ' ' + (UMORE_LABEL[UMORE_EMOJI.indexOf(b.umore)] || '') + '</span>';
+    if (b.peso) chips += '<span class="bv-chip">⚖️ ' + b.peso + ' kg</span>';
+    if (b.pressione) chips += '<span class="bv-chip">🩺 ' + b.pressione + '</span>';
+    if (b.temperatura) chips += '<span class="bv-chip">🌡️ ' + b.temperatura + '°C</span>';
+    return '<div class="benessere-valori">' + chips + '</div>';
+  }
+
+  function renderFormBenessere() {
+    return '<p style="font-size:0.85rem;color:var(--testo-muted);margin-bottom:12px">Nessun dato registrato oggi.</p>' +
+      '<button onclick="mostraSezione('benessere')" style="padding:8px 16px;background:var(--terracotta);color:white;border:none;border-radius:var(--raggio-sm);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;font-weight:600">Registra benessere di oggi</button>';
+  }
+
+  function selDolore(val) {
+    doloreSelezionato = val;
+    document.getElementById('dolore-val').textContent = val;
+    document.querySelectorAll('.dolore-btn').forEach((b,i) => b.classList.toggle('attivo', i===val));
+  }
+
+  function selUmore(emoji) {
+    umoreSelezionato = emoji;
+    document.querySelectorAll('.umore-btn').forEach(b => b.classList.toggle('attivo', b.textContent===emoji));
+  }
+
+  function salvaBenessere() {
+    const tk = oggiStr();
+    const nuovo = {
+      data: tk,
+      dolore: doloreSelezionato,
+      umore: umoreSelezionato,
+      peso: document.getElementById('input-peso').value || null,
+      pressione: document.getElementById('input-pressione').value.trim() || null,
+      temperatura: document.getElementById('input-temperatura').value || null
+    };
+    benessere = benessere.filter(b => b.data !== tk);
+    benessere.push(nuovo);
+    localStorage.setItem('benessere', JSON.stringify(benessere));
+    try { db && db.ref('benessere').set(benessere); } catch(e){}
+    renderBenessere();
+  }
+
+  function eliminaBenessere(tk) {
+    benessere = benessere.filter(b => b.data !== tk);
+    localStorage.setItem('benessere', JSON.stringify(benessere));
+    try { db && db.ref('benessere').set(benessere); } catch(e){}
+    doloreSelezionato = 0; umoreSelezionato = '';
+    renderBenessere();
+  }
+
+
+  // ============================================================
+  // BACHECA FAMIGLIA
+  // ============================================================
+  function renderBacheca() {
+    const lista = document.getElementById('lista-bacheca');
+    if (!lista) return;
+    const ordinata = [...bacheca].sort((a,b) => b.ts.localeCompare(a.ts));
+    lista.innerHTML = ordinata.length ? ordinata.map(m =>
+      '<div class="bacheca-msg">' +
+        '<div class="bacheca-meta">' + (m.chi || '—') + ' · ' + formatDataOra(m.ts) + '</div>' +
+        '<div class="bacheca-testo">' + m.testo + '</div>' +
+        '<button onclick="eliminaBacheca('' + m.id + '')">✕ Elimina</button>' +
+      '</div>'
+    ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessun messaggio ancora.</p>';
+  }
+
+  function salvaBacheca() {
+    const testo = document.getElementById('input-bacheca').value.trim();
+    if (!testo) return;
+    bacheca.push({ id: uid(), testo, chi: nomeUtente || '—', ts: new Date().toISOString() });
+    document.getElementById('input-bacheca').value = '';
+    localStorage.setItem('bacheca', JSON.stringify(bacheca));
+    try { db && db.ref('bacheca').set(bacheca); } catch(e){}
+    renderBacheca();
+  }
+
+  function eliminaBacheca(id) {
+    bacheca = bacheca.filter(m => m.id !== id);
+    localStorage.setItem('bacheca', JSON.stringify(bacheca));
+    try { db && db.ref('bacheca').set(bacheca); } catch(e){}
+    renderBacheca();
+  }
+
+  function formatDataOra(isoStr) {
+    const d = new Date(isoStr);
+    return d.getDate() + ' ' + nomiMesi[d.getMonth()] + ' · ' +
+      d.toLocaleTimeString('it-IT', {hour:'2-digit', minute:'2-digit'});
+  }
+
+
+  // ============================================================
+  // VISITE MEDICHE
+  // ============================================================
+  function renderVisite() {
+    const lista = document.getElementById('lista-visite');
+    if (!lista) return;
+    const ordinate = [...visite].sort((a,b) => b.data.localeCompare(a.data));
+    lista.innerHTML = ordinate.length ? ordinate.map(v =>
+      '<div class="visita-card">' +
+        '<div class="visita-data">' + formatData(v.data) + '</div>' +
+        '<div class="visita-medico">' + v.medico + '</div>' +
+        (v.note ? '<div class="visita-sezione">Cosa è emerso</div><div style="font-size:0.88rem;line-height:1.6">' + v.note + '</div>' : '') +
+        (v.prossimi ? '<div class="visita-sezione">Prossimi passi</div><div style="font-size:0.88rem;color:var(--salvia-dark);font-weight:600">' + v.prossimi + '</div>' : '') +
+        '<button onclick="eliminaVisita('' + v.id + '')">✕ Elimina</button>' +
+      '</div>'
+    ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessuna visita registrata ancora.</p>';
+  }
+
+  function salvaVisita() {
+    const data = document.getElementById('v-data').value;
+    const medico = document.getElementById('v-medico').value.trim();
+    if (!data || !medico) return;
+    visite.push({
+      id: uid(), data, medico,
+      note: document.getElementById('v-note').value.trim(),
+      prossimi: document.getElementById('v-prossimi').value.trim()
+    });
+    localStorage.setItem('visite', JSON.stringify(visite));
+    try { db && db.ref('visite').set(visite); } catch(e){}
+    toggleForm('form-visita');
+    renderVisite();
+  }
+
+  function eliminaVisita(id) {
+    visite = visite.filter(v => v.id !== id);
+    localStorage.setItem('visite', JSON.stringify(visite));
+    try { db && db.ref('visite').set(visite); } catch(e){}
+    renderVisite();
+  }
+
+
+  // ============================================================
+  // SCHEDA EMERGENZA
+  // ============================================================
+  function renderEmergenza() {
+    const el = document.getElementById('scheda-emergenza-contenuto');
+    if (!el) return;
+    const ex = emergenzaExtra;
+
+    const farmaciRows = FARMACI.filter(f => f.tipo !== 'cerotto').map(f => {
+      const fasciaLabel = {
+        'stomaco-vuoto':'Stomaco vuoto','mattina':'Mattina',
+        'sera':'Sera','bisogno':'Al bisogno'
+      }[f.fascia] || f.fascia;
+      return '<div class="em-farmaco-row">' +
+        '<span><strong>' + f.nome + '</strong> <span class="em-dose">' + f.dosi.join('+') + '</span></span>' +
+        '<span class="em-dose">' + fasciaLabel + '</span>' +
+      '</div>';
+    }).join('');
+
+    const cerotto = FARMACI.find(f => f.tipo === 'cerotto');
+    const cerRiga = cerotto ? '<div class="em-farmaco-row"><span><strong>' + cerotto.nome +
+      '</strong> <span class="em-dose">ogni 3 giorni</span></span>' +
+      '<span class="em-dose">' + (cerotto.dosi[0]||'') + '</span></div>' : '';
+
+    el.innerHTML =
+      '<div class="em-titolo">🆘 SCHEDA DI EMERGENZA — PAZIENTE ONCOLOGICA</div>' +
+
+      '<div class="em-sezione">Paziente</div>' +
+      '<div class="em-dato"><strong>Nome:</strong> ' + (ex.nome || 'Da compilare') + '</div>' +
+      '<div class="em-dato"><strong>Data di nascita:</strong> ' + (ex.nascita || 'Da compilare') + '</div>' +
+      '<div class="em-dato"><strong>Gruppo sanguigno:</strong> ' + (ex.gruppo || 'Da verificare') + '</div>' +
+      '<div class="em-dato"><strong>Allergie:</strong> Nessuna allergia nota</div>' +
+
+      '<div class="em-sezione">Farmaci in corso</div>' +
+      farmaciRows + cerRiga +
+
+      '<div class="em-sezione">Cerotto Matrifen</div>' +
+      '<div class="em-dato" style="color:var(--rosso);font-size:0.85rem">⚠️ Paziente in terapia con fentanil transdermico (Matrifen). Cerotto attivo sul corpo — segnalare sempre al personale medico.</div>' +
+
+      '<div class="em-sezione">Medico di riferimento</div>' +
+      '<div class="em-dato">' + (ex.medicoBase || 'Da compilare') + '</div>' +
+
+      (ex.note ? '<div class="em-sezione">Note</div><div class="em-dato">' + ex.note + '</div>' : '') +
+
+      '<div style="margin-top:14px;font-size:0.75rem;color:var(--testo-muted);border-top:1px solid var(--bordo);padding-top:8px">' +
+      'Aggiornato: ' + new Date().toLocaleDateString('it-IT') + '</div>';
+
+    // Precompila form extra se ci sono dati
+    if (ex.medicoBase) document.getElementById('em-medico-base').value = ex.medicoBase;
+    if (ex.gruppo) document.getElementById('em-gruppo').value = ex.gruppo;
+    if (ex.allergie) document.getElementById('em-allergie').value = ex.allergie;
+    if (ex.note) document.getElementById('em-note').value = ex.note;
+    if (ex.nome) document.getElementById('em-nome') && (document.getElementById('em-nome').value = ex.nome);
+  }
+
+  function salvaEmergenzaExtra() {
+    emergenzaExtra = {
+      nome:       document.getElementById('em-nome').value.trim(),
+      nascita:    document.getElementById('em-nascita').value.trim(),
+      medicoBase: document.getElementById('em-medico-base').value.trim(),
+      gruppo:     document.getElementById('em-gruppo').value.trim(),
+      allergie:   document.getElementById('em-allergie').value.trim(),
+      note:       document.getElementById('em-note').value.trim()
+    };
+    localStorage.setItem('emergenzaExtra', JSON.stringify(emergenzaExtra));
+    try { db && db.ref('emergenzaExtra').set(emergenzaExtra); } catch(e){}
+    toggleForm('form-emergenza-extra');
+    renderEmergenza();
+  }
+
+  function stampaEmergenza() {
+    window.print();
+  }
+
+
+  // ============================================================
+  // LISTA SPESA FARMACI
+  // ============================================================
+  function renderSpesa() {
+    const lista = document.getElementById('lista-spesa');
+    if (!lista) return;
+
+    const urgenti = [];
+    const attenzione = [];
+
+    Object.entries(scorte).forEach(function([id, s]) {
+      if (s.doseGiorno <= 0) {
+        // al bisogno: urgente se < 3 rimaste
+        if (s.qty <= 3) urgenti.push({id, s, giorni: null});
+        else if (s.qty <= 7) attenzione.push({id, s, giorni: null});
+        return;
+      }
+      const giorni = Math.floor(s.qty / s.doseGiorno);
+      if (giorni <= 7)  urgenti.push({id, s, giorni});
+      else if (giorni <= 14) attenzione.push({id, s, giorni});
+    });
+
+    if (!urgenti.length && !attenzione.length) {
+      lista.innerHTML = '<div style="text-align:center;padding:30px;color:var(--salvia-dark)">' +
+        '<div style="font-size:2rem">✓</div>' +
+        '<p style="margin-top:8px;font-weight:600">Tutte le scorte sono ok!</p></div>';
+      return;
+    }
+
+    const renderItem = function(item, cls) {
+      const giorni = item.giorni !== null ? '≈ ' + item.giorni + ' giorni rimasti' : item.s.qty + ' rimaste';
+      return '<div class="spesa-item ' + cls + '">' +
+        '<div>' +
+          '<div class="spesa-nome">' + item.s.nome + '</div>' +
+          '<div class="spesa-dettaglio">' + giorni + ' · ' + item.s.qty + ' compresse/bustine</div>' +
+        '</div>' +
+        '<input type="checkbox" class="spesa-checkbox" title="Ordinato">' +
+      '</div>';
+    };
+
+    let html = '';
+    if (urgenti.length) {
+      html += '<div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--rosso);margin-bottom:8px">🔴 Da ordinare subito</div>';
+      html += urgenti.map(i => renderItem(i, 'spesa-urgente')).join('');
+    }
+    if (attenzione.length) {
+      html += '<div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--ambra);margin:12px 0 8px">🟡 Ordinare presto</div>';
+      html += attenzione.map(i => renderItem(i, 'spesa-attenzione')).join('');
+    }
+    lista.innerHTML = html;
+  }
+
+  function condividiSpesa() {
+    const urgenti = [], attenzione = [];
+    Object.entries(scorte).forEach(function([id, s]) {
+      const giorni = s.doseGiorno > 0 ? Math.floor(s.qty / s.doseGiorno) : null;
+      if ((giorni !== null && giorni <= 7) || (giorni === null && s.qty <= 3)) urgenti.push(s.nome);
+      else if ((giorni !== null && giorni <= 14) || (giorni === null && s.qty <= 7)) attenzione.push(s.nome);
+    });
+    let testo = 'Lista spesa farmaci 💊
+';
+    if (urgenti.length) testo += '
+🔴 URGENTE:
+' + urgenti.map(n => '- ' + n).join('
+');
+    if (attenzione.length) testo += '
+
+🟡 Presto:
+' + attenzione.map(n => '- ' + n).join('
+');
+    if (navigator.share) {
+      navigator.share({ title: 'Lista spesa farmaci', text: testo });
+    } else {
+      navigator.clipboard.writeText(testo).then(function() {
+        alert('Lista copiata! Puoi incollarla su WhatsApp.');
+      });
+    }
+  }
+
+
+  // ============================================================
+  // SYNC FIREBASE — nuovi dati
+  // ============================================================
+  function avviaListenerNuoviDati() {
+    if (!db) return;
+    db.ref('benessere').on('value', function(snap) {
+      if (snap.val()) { benessere = Object.values(snap.val()); localStorage.setItem('benessere', JSON.stringify(benessere)); }
+    });
+    db.ref('bacheca').on('value', function(snap) {
+      if (snap.val()) { bacheca = Object.values(snap.val()); localStorage.setItem('bacheca', JSON.stringify(bacheca));
+        renderBacheca(); }
+    });
+    db.ref('visite').on('value', function(snap) {
+      if (snap.val()) { visite = Object.values(snap.val()); localStorage.setItem('visite', JSON.stringify(visite)); }
+    });
+    db.ref('emergenzaExtra').on('value', function(snap) {
+      if (snap.val()) { emergenzaExtra = snap.val(); localStorage.setItem('emergenzaExtra', JSON.stringify(emergenzaExtra)); }
+    });
   }
 
 
@@ -2741,7 +3494,14 @@
   // ============================================================
   // AVVIO
   // ============================================================
-  mostraSchermataPIN();
+  // Aspetta che il DOM sia pronto prima di tutto
+  document.addEventListener('DOMContentLoaded', function() {
+    mostraSchermataPIN();
+  });
+  // Fallback se DOMContentLoaded è già passato
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    mostraSchermataPIN();
+  }
 
   // ============================================================
   // PWA — Service Worker per uso offline
