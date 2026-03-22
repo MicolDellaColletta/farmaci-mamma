@@ -3343,17 +3343,14 @@
       if ((giorni !== null && giorni <= 7) || (giorni === null && s.qty <= 3)) urgenti.push(s.nome);
       else if ((giorni !== null && giorni <= 14) || (giorni === null && s.qty <= 7)) attenzione.push(s.nome);
     });
-    let testo = 'Lista spesa farmaci 💊
-';
+    let testo = 'Lista spesa farmaci 💊';
     if (urgenti.length) testo += '
 🔴 URGENTE:
-' + urgenti.map(n => '- ' + n).join('
-');
+' + urgenti.map(n => '- ' + n).join('');
     if (attenzione.length) testo += '
 
 🟡 Presto:
-' + attenzione.map(n => '- ' + n).join('
-');
+' + attenzione.map(n => '- ' + n).join('');
     if (navigator.share) {
       navigator.share({ title: 'Lista spesa farmaci', text: testo });
     } else {
