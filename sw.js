@@ -1,12 +1,11 @@
-const CACHE = 'farmaci-v5';
-const ASSETS = ['/farmaci-mamma/', '/farmaci-mamma/index.html'];
-
-self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
-});
-
-self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request))
+self.addEventListener('install', function() { self.skipWaiting(); });
+self.addEventListener('activate', function(e) {
+  e.waitUntil(
+    caches.keys().then(function(keys) {
+      return Promise.all(keys.map(function(k) { return caches.delete(k); }));
+    }).then(function() { return self.clients.claim(); })
   );
+});
+self.addEventListener('fetch', function(e) {
+  e.respondWith(fetch(e.request));
 });
