@@ -1,4 +1,4 @@
-const CACHE = 'farmaci-v3';
+const CACHE = 'farmaci-v4';
 const ASSETS = ['/farmaci-mamma/', '/farmaci-mamma/index.html'];
 
 self.addEventListener('install', e => {
