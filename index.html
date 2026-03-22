@@ -888,8 +888,7 @@
     }
 
     .cal-giorno.cal-futuro {
-      cursor: default;
-      opacity: 0.4;
+      opacity: 0.5;
     }
 
     .cal-giorno.cal-oggi {
@@ -1683,12 +1682,9 @@
     <div id="scheda-emergenza-contenuto">
       <!-- generata da JS -->
     </div>
-    <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
-      <button onclick="stampaEmergenza()">🖨️ Stampa / Salva PDF</button>
-      <button onclick="toggleForm('form-emergenza-extra')" class="btn-sec">✏️ Modifica dati extra</button>
-    </div>
-    <div id="form-emergenza-extra" style="display:none" class="card-form">
-      <label>Nome paziente</label>
+    <div class="card-form" style="margin-top:16px">
+      <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--testo-muted);margin-bottom:4px">Dati paziente</div>
+      <label>Nome e cognome</label>
       <input type="text" id="em-nome" placeholder="Nome e cognome">
       <label>Data di nascita</label>
       <input type="text" id="em-nascita" placeholder="es. 15/03/1952">
@@ -1700,7 +1696,10 @@
       <input type="text" id="em-allergie" placeholder="Nessuna allergia nota">
       <label>Note aggiuntive</label>
       <textarea id="em-note" placeholder="Patologie, condizioni particolari..."></textarea>
-      <button onclick="salvaEmergenzaExtra()">Salva</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
+        <button onclick="salvaEmergenzaExtra()">💾 Salva scheda</button>
+        <button onclick="stampaEmergenza()" class="btn-sec">🖨️ Stampa / PDF</button>
+      </div>
     </div>
   </section>
 
@@ -2723,12 +2722,10 @@
 
       const classi = ['cal-giorno',
         isOggi ? 'cal-oggi' : '',
-        isFuturo ? 'cal-futuro' : '',
         classeStato].filter(Boolean).join(' ');
 
-      let clickHandler = '';
-      if (!isFuturo && !isOggi) clickHandler = 'onclick="apriDettaglioGiorno(\'' + tk + '\')"';
-      else if (isOggi) clickHandler = 'onclick="mostraSezione(\'farmaci\')" title="Vai a oggi"';
+      // Tutti i giorni sono cliccabili
+      let clickHandler = 'onclick="apriDettaglioGiorno(\'' + tk + '\')"';
 
       celle.push('<div class="' + classi + '" ' + clickHandler + '><span class="cal-num">' + d + '</span></div>');
     }
@@ -2759,11 +2756,11 @@
     overlay.innerHTML = '<div class="cal-popup">' +
       '<div class="cal-popup-titolo">' + dataFormattata + '</div>' +
       '<div class="cal-popup-azioni">' +
-        '<button class="cal-popup-btn" onclick="apriDettaglioFarmaci(\'' + tk + '\')">' +
+        '<button class="cal-popup-btn" onclick="apriDettaglioFarmaci('' + tk + '')">' +
           '<span class="icona">💊</span> Vedi farmaci di questo giorno</button>' +
-        '<button class="cal-popup-btn" onclick="aggiuntaVeloceNota(\'' + tk + '\')">' +
+        '<button class="cal-popup-btn" onclick="aggiuntaVeloceNota('' + tk + '')">' +
           '<span class="icona">📝</span> Aggiungi nota per questo giorno</button>' +
-        '<button class="cal-popup-btn" onclick="aggiuntaVeloceAppuntamento(\'' + tk + '\')">' +
+        '<button class="cal-popup-btn" onclick="aggiuntaVeloceAppuntamento('' + tk + '')">' +
           '<span class="icona">📅</span> Aggiungi appuntamento in questa data</button>' +
       '</div>' +
       '<button class="cal-popup-chiudi" onclick="chiudiPopupCalendario()">Chiudi</button>' +
@@ -2992,7 +2989,8 @@
 
     // Notifica sommario unica (per non spammare)
     const totale = avvisi.length;
-    const corpo  = avvisi.map(a => a.titolo).join('');
+    const corpo  = avvisi.map(a => a.titolo).join('
+');
 
     setTimeout(function() {
       new Notification('Calendario Medico – Mamma', {
@@ -3048,7 +3046,7 @@
     if (scalaUmore) {
       scalaUmore.innerHTML = UMORE_EMOJI.map((e,i) =>
         '<button class="umore-btn' + (umoreSelezionato===e?' attivo':'') +
-        '" onclick="selUmore(\'' + e + '\')" title="' + UMORE_LABEL[i] + '">' + e + '</button>'
+        '" onclick="selUmore('' + e + '')" title="' + UMORE_LABEL[i] + '">' + e + '</button>'
       ).join('');
     }
     // Benessere oggi
@@ -3058,7 +3056,7 @@
     if (elOggi) {
       if (oggi) {
         elOggi.innerHTML = renderBenessereValori(oggi) +
-          '<button onclick="eliminaBenessere(\'' + tk + '\')" style="margin-top:10px;background:none;border:none;cursor:pointer;font-size:0.78rem;color:var(--testo-light)">Elimina e reinserisci</button>';
+          '<button onclick="eliminaBenessere('' + tk + '')" style="margin-top:10px;background:none;border:none;cursor:pointer;font-size:0.78rem;color:var(--testo-light)">Elimina e reinserisci</button>';
       } else {
         elOggi.innerHTML = renderFormBenessere();
       }
@@ -3087,7 +3085,7 @@
 
   function renderFormBenessere() {
     return '<p style="font-size:0.85rem;color:var(--testo-muted);margin-bottom:12px">Nessun dato registrato oggi.</p>' +
-      '<button onclick="mostraSezione(\'benessere\')" style="padding:8px 16px;background:var(--terracotta);color:white;border:none;border-radius:var(--raggio-sm);cursor:pointer;font-family:\'Source Sans 3\',sans-serif;font-size:0.88rem;font-weight:600">Registra benessere di oggi</button>';
+      '<button onclick="mostraSezione('benessere')" style="padding:8px 16px;background:var(--terracotta);color:white;border:none;border-radius:var(--raggio-sm);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;font-weight:600">Registra benessere di oggi</button>';
   }
 
   function selDolore(val) {
@@ -3135,10 +3133,11 @@
     if (!lista) return;
     const ordinata = [...bacheca].sort((a,b) => b.ts.localeCompare(a.ts));
     lista.innerHTML = ordinata.length ? ordinata.map(m =>
-        '<div class="bacheca-msg">' +
+      '<div class="bacheca-msg">' +
         '<div class="bacheca-meta">' + (m.chi || '—') + ' · ' + formatDataOra(m.ts) + '</div>' +
         '<div class="bacheca-testo">' + m.testo + '</div>' +
-        '<button onclick="eliminaBacheca(\'' + m.id + '\')">✕ Elimina</button>' + '</div>'
+        '<button onclick="eliminaBacheca('' + m.id + '')">✕ Elimina</button>' +
+      '</div>'
     ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessun messaggio ancora.</p>';
   }
 
@@ -3179,7 +3178,7 @@
         '<div class="visita-medico">' + v.medico + '</div>' +
         (v.note ? '<div class="visita-sezione">Cosa è emerso</div><div style="font-size:0.88rem;line-height:1.6">' + v.note + '</div>' : '') +
         (v.prossimi ? '<div class="visita-sezione">Prossimi passi</div><div style="font-size:0.88rem;color:var(--salvia-dark);font-weight:600">' + v.prossimi + '</div>' : '') +
-        '<button onclick="eliminaVisita(\'' + v.id + '\')">✕ Elimina</button>' +
+        '<button onclick="eliminaVisita('' + v.id + '')">✕ Elimina</button>' +
       '</div>'
     ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessuna visita registrata ancora.</p>';
   }
@@ -3211,9 +3210,9 @@
   // SCHEDA EMERGENZA
   // ============================================================
   function renderEmergenza() {
-    const el = document.getElementById('scheda-emergenza-contenuto');
-    if (!el) return;
+    aggiornaSchedaEmergenza();
     const ex = emergenzaExtra;
+    const el = document.getElementById('scheda-emergenza-contenuto');
 
     const farmaciRows = FARMACI.filter(f => f.tipo !== 'cerotto').map(f => {
       const fasciaLabel = {
@@ -3254,12 +3253,17 @@
       '<div style="margin-top:14px;font-size:0.75rem;color:var(--testo-muted);border-top:1px solid var(--bordo);padding-top:8px">' +
       'Aggiornato: ' + new Date().toLocaleDateString('it-IT') + '</div>';
 
-    // Precompila form extra se ci sono dati
-    if (ex.medicoBase) document.getElementById('em-medico-base').value = ex.medicoBase;
-    if (ex.gruppo) document.getElementById('em-gruppo').value = ex.gruppo;
-    if (ex.allergie) document.getElementById('em-allergie').value = ex.allergie;
-    if (ex.note) document.getElementById('em-note').value = ex.note;
-    if (ex.nome) document.getElementById('em-nome') && (document.getElementById('em-nome').value = ex.nome);
+    // Precompila i campi con i dati salvati
+    const setVal = function(id, val) {
+      const el = document.getElementById(id);
+      if (el && val) el.value = val;
+    };
+    setVal('em-nome', ex.nome);
+    setVal('em-nascita', ex.nascita);
+    setVal('em-medico-base', ex.medicoBase);
+    setVal('em-gruppo', ex.gruppo);
+    setVal('em-allergie', ex.allergie);
+    setVal('em-note', ex.note);
   }
 
   function salvaEmergenzaExtra() {
@@ -3273,8 +3277,35 @@
     };
     localStorage.setItem('emergenzaExtra', JSON.stringify(emergenzaExtra));
     try { db && db.ref('emergenzaExtra').set(emergenzaExtra); } catch(e){}
-    toggleForm('form-emergenza-extra');
-    renderEmergenza();
+    // Aggiorna solo la parte superiore della scheda senza toccare i campi
+    aggiornaSchedaEmergenza();
+    alert('Scheda salvata!');
+  }
+
+  function aggiornaSchedaEmergenza() {
+    const ex = emergenzaExtra;
+    const el = document.getElementById('scheda-emergenza-contenuto');
+    if (!el) return;
+    const farmaciRows = FARMACI.filter(f => f.tipo !== 'cerotto').map(f => {
+      const fasciaLabel = {'stomaco-vuoto':'Stomaco vuoto','mattina':'Mattina','sera':'Sera','bisogno':'Al bisogno'}[f.fascia] || f.fascia;
+      return '<div class="em-farmaco-row"><span><strong>' + f.nome + '</strong> <span class="em-dose">' + f.dosi.join('+') + '</span></span><span class="em-dose">' + fasciaLabel + '</span></div>';
+    }).join('');
+    const cerotto = FARMACI.find(f => f.tipo === 'cerotto');
+    const cerRiga = cerotto ? '<div class="em-farmaco-row"><span><strong>' + cerotto.nome + '</strong> <span class="em-dose">ogni 3 giorni</span></span><span class="em-dose">' + (cerotto.dosi[0]||'') + '</span></div>' : '';
+    el.innerHTML =
+      '<div class="em-titolo">🆘 SCHEDA DI EMERGENZA — PAZIENTE ONCOLOGICA</div>' +
+      '<div class="em-sezione">Paziente</div>' +
+      '<div class="em-dato"><strong>Nome:</strong> ' + (ex.nome || '—') + '</div>' +
+      '<div class="em-dato"><strong>Data di nascita:</strong> ' + (ex.nascita || '—') + '</div>' +
+      '<div class="em-dato"><strong>Gruppo sanguigno:</strong> ' + (ex.gruppo || '—') + '</div>' +
+      '<div class="em-dato"><strong>Allergie:</strong> ' + (ex.allergie || 'Nessuna allergia nota') + '</div>' +
+      '<div class="em-sezione">Farmaci in corso</div>' + farmaciRows + cerRiga +
+      '<div class="em-sezione">Cerotto Matrifen</div>' +
+      '<div class="em-dato" style="color:var(--rosso);font-size:0.85rem">⚠️ Paziente in terapia con fentanil transdermico (Matrifen). Cerotto attivo sul corpo — segnalare sempre al personale medico.</div>' +
+      '<div class="em-sezione">Medico di riferimento</div>' +
+      '<div class="em-dato">' + (ex.medicoBase || '—') + '</div>' +
+      (ex.note ? '<div class="em-sezione">Note</div><div class="em-dato">' + ex.note + '</div>' : '') +
+      '<div style="margin-top:14px;font-size:0.75rem;color:var(--testo-muted);border-top:1px solid var(--bordo);padding-top:8px">Aggiornato: ' + new Date().toLocaleDateString('it-IT') + '</div>';
   }
 
   function stampaEmergenza() {
@@ -3341,11 +3372,17 @@
       if ((giorni !== null && giorni <= 7) || (giorni === null && s.qty <= 3)) urgenti.push(s.nome);
       else if ((giorni !== null && giorni <= 14) || (giorni === null && s.qty <= 7)) attenzione.push(s.nome);
     });
-    let testo = 'Lista spesa farmaci 💊';
-    if (urgenti.length) testo += 
-      '🔴 URGENTE:' + urgenti.map(n => '- ' + n).join('');
-    if (attenzione.length) testo += 
-      '🟡 Presto:' + attenzione.map(n => '- ' + n).join('');
+    let testo = 'Lista spesa farmaci 💊
+';
+    if (urgenti.length) testo += '
+🔴 URGENTE:
+' + urgenti.map(n => '- ' + n).join('
+');
+    if (attenzione.length) testo += '
+
+🟡 Presto:
+' + attenzione.map(n => '- ' + n).join('
+');
     if (navigator.share) {
       navigator.share({ title: 'Lista spesa farmaci', text: testo });
     } else {
