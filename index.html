@@ -2759,11 +2759,11 @@
     overlay.innerHTML = '<div class="cal-popup">' +
       '<div class="cal-popup-titolo">' + dataFormattata + '</div>' +
       '<div class="cal-popup-azioni">' +
-        '<button class="cal-popup-btn" onclick="apriDettaglioFarmaci('' + tk + '')">' +
+        '<button class="cal-popup-btn" onclick="apriDettaglioFarmaci(\'' + tk + '\')">' +
           '<span class="icona">💊</span> Vedi farmaci di questo giorno</button>' +
-        '<button class="cal-popup-btn" onclick="aggiuntaVeloceNota('' + tk + '')">' +
+        '<button class="cal-popup-btn" onclick="aggiuntaVeloceNota(\'' + tk + '\')">' +
           '<span class="icona">📝</span> Aggiungi nota per questo giorno</button>' +
-        '<button class="cal-popup-btn" onclick="aggiuntaVeloceAppuntamento('' + tk + '')">' +
+        '<button class="cal-popup-btn" onclick="aggiuntaVeloceAppuntamento(\'' + tk + '\')">' +
           '<span class="icona">📅</span> Aggiungi appuntamento in questa data</button>' +
       '</div>' +
       '<button class="cal-popup-chiudi" onclick="chiudiPopupCalendario()">Chiudi</button>' +
@@ -2992,8 +2992,7 @@
 
     // Notifica sommario unica (per non spammare)
     const totale = avvisi.length;
-    const corpo  = avvisi.map(a => a.titolo).join('
-');
+    const corpo  = avvisi.map(a => a.titolo).join('');
 
     setTimeout(function() {
       new Notification('Calendario Medico – Mamma', {
@@ -3049,7 +3048,7 @@
     if (scalaUmore) {
       scalaUmore.innerHTML = UMORE_EMOJI.map((e,i) =>
         '<button class="umore-btn' + (umoreSelezionato===e?' attivo':'') +
-        '" onclick="selUmore('' + e + '')" title="' + UMORE_LABEL[i] + '">' + e + '</button>'
+        '" onclick="selUmore(\'' + e + '\')" title="' + UMORE_LABEL[i] + '">' + e + '</button>'
       ).join('');
     }
     // Benessere oggi
@@ -3059,7 +3058,7 @@
     if (elOggi) {
       if (oggi) {
         elOggi.innerHTML = renderBenessereValori(oggi) +
-          '<button onclick="eliminaBenessere('' + tk + '')" style="margin-top:10px;background:none;border:none;cursor:pointer;font-size:0.78rem;color:var(--testo-light)">Elimina e reinserisci</button>';
+          '<button onclick="eliminaBenessere(\'' + tk + '\')" style="margin-top:10px;background:none;border:none;cursor:pointer;font-size:0.78rem;color:var(--testo-light)">Elimina e reinserisci</button>';
       } else {
         elOggi.innerHTML = renderFormBenessere();
       }
@@ -3088,7 +3087,7 @@
 
   function renderFormBenessere() {
     return '<p style="font-size:0.85rem;color:var(--testo-muted);margin-bottom:12px">Nessun dato registrato oggi.</p>' +
-      '<button onclick="mostraSezione('benessere')" style="padding:8px 16px;background:var(--terracotta);color:white;border:none;border-radius:var(--raggio-sm);cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;font-weight:600">Registra benessere di oggi</button>';
+      '<button onclick="mostraSezione(\'benessere\')" style="padding:8px 16px;background:var(--terracotta);color:white;border:none;border-radius:var(--raggio-sm);cursor:pointer;font-family:\'Source Sans 3\',sans-serif;font-size:0.88rem;font-weight:600">Registra benessere di oggi</button>';
   }
 
   function selDolore(val) {
@@ -3136,11 +3135,10 @@
     if (!lista) return;
     const ordinata = [...bacheca].sort((a,b) => b.ts.localeCompare(a.ts));
     lista.innerHTML = ordinata.length ? ordinata.map(m =>
-      '<div class="bacheca-msg">' +
+        '<div class="bacheca-msg">' +
         '<div class="bacheca-meta">' + (m.chi || '—') + ' · ' + formatDataOra(m.ts) + '</div>' +
         '<div class="bacheca-testo">' + m.testo + '</div>' +
-        '<button onclick="eliminaBacheca('' + m.id + '')">✕ Elimina</button>' +
-      '</div>'
+        '<button onclick="eliminaBacheca(\'' + m.id + '\')">✕ Elimina</button>' + '</div>'
     ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessun messaggio ancora.</p>';
   }
 
@@ -3181,7 +3179,7 @@
         '<div class="visita-medico">' + v.medico + '</div>' +
         (v.note ? '<div class="visita-sezione">Cosa è emerso</div><div style="font-size:0.88rem;line-height:1.6">' + v.note + '</div>' : '') +
         (v.prossimi ? '<div class="visita-sezione">Prossimi passi</div><div style="font-size:0.88rem;color:var(--salvia-dark);font-weight:600">' + v.prossimi + '</div>' : '') +
-        '<button onclick="eliminaVisita('' + v.id + '')">✕ Elimina</button>' +
+        '<button onclick="eliminaVisita(\'' + v.id + '\')">✕ Elimina</button>' +
       '</div>'
     ).join('') : '<p style="color:var(--testo-muted);font-size:0.88rem">Nessuna visita registrata ancora.</p>';
   }
@@ -3344,13 +3342,10 @@
       else if ((giorni !== null && giorni <= 14) || (giorni === null && s.qty <= 7)) attenzione.push(s.nome);
     });
     let testo = 'Lista spesa farmaci 💊';
-    if (urgenti.length) testo += '
-🔴 URGENTE:
-' + urgenti.map(n => '- ' + n).join('');
-    if (attenzione.length) testo += '
-
-🟡 Presto:
-' + attenzione.map(n => '- ' + n).join('');
+    if (urgenti.length) testo += 
+      '🔴 URGENTE:' + urgenti.map(n => '- ' + n).join('');
+    if (attenzione.length) testo += 
+      '🟡 Presto:' + attenzione.map(n => '- ' + n).join('');
     if (navigator.share) {
       navigator.share({ title: 'Lista spesa farmaci', text: testo });
     } else {
@@ -3503,10 +3498,10 @@
   // ============================================================
   // PWA — Service Worker per uso offline
   // ============================================================
-  // Service worker esterno (sw.js nel repository)
+  // Disregistra qualsiasi service worker esistente per evitare cache problematiche
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/farmaci-mamma/sw.js').catch(function(e){
-      console.log('SW non registrato:', e);
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      registrations.forEach(function(reg) { reg.unregister(); });
     });
   }
 
