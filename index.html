@@ -2609,8 +2609,7 @@
 
     // Notifica sommario unica (per non spammare)
     const totale = avvisi.length;
-    const corpo  = avvisi.map(a => a.titolo).join('
-');
+    const corpo  = avvisi.map(a => a.titolo).join('');
 
     setTimeout(function() {
       new Notification('Calendario Medico – Mamma', {
